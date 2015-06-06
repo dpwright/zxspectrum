@@ -1,0 +1,21 @@
+name:                zxspectrum
+version:             0.1.0.0
+synopsis:            Utilities for writing software targeting the ZX Spectrum in Haskell
+description:         Utilities for writing software targeting the ZX Spectrum in Haskell
+homepage:            https://github.com/dpwright/zxspectrum
+license:             MIT
+license-file:        LICENSE
+author:              Daniel P. Wright
+maintainer:          dani@dpwright.com
+copyright:           (c) Daniel P. Wright 2015
+category:            Development
+build-type:          Simple
+cabal-version:       >=1.10
+
+library
+  exposed-modules:     ZXSpectrum
+  build-depends:       base >=4.7 && <4.9,
+                       z80
+  hs-source-dirs:      src
+  ghc-options:         -Wall
+  default-language:    Haskell2010
