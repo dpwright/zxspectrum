@@ -14,7 +14,8 @@ cabal-version:       >=1.10
 
 library
   exposed-modules:     ZXSpectrum,
-                       ZXSpectrum.TAP
+                       ZXSpectrum.TAP,
+                       ZXSpectrum.TZX
   build-depends:       base >=4.7 && <4.9,
                        bytestring,
                        mtl
