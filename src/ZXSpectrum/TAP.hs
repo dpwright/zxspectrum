@@ -113,7 +113,7 @@ codeBlock :: (IsString s, Monoid s, MonadError s m)
           -> ByteString   -- ^ The raw machine code as output from an assembler
           -> m ByteString -- ^ The data in .tap form, ready to be written to a file.
 codeBlock name datastart asm = withHeader hdr $ tapBlock Data asm
-  where hdr = Header Code name len datastart 0
+  where hdr = Header Code name len datastart 32768
         len = fromIntegral $ BS.length asm
 
 withCheckedName :: (IsString s, Monoid s, MonadError s m) => String -> a -> m a
