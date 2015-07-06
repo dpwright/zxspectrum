@@ -1,10 +1,12 @@
 module ZXSpectrum
   ( defaultMain
   , module ZXSpectrum.Attributes
+  , module ZXSpectrum.Rom48
   ) where
 
 import Z80
 import ZXSpectrum.TAP
+import ZXSpectrum.Rom48
 import ZXSpectrum.Attributes
 
 import Data.ByteString (ByteString)
