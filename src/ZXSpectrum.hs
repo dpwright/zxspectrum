@@ -1,9 +1,11 @@
 module ZXSpectrum
   ( defaultMain
+  , module ZXSpectrum.Attributes
   ) where
 
 import Z80
 import ZXSpectrum.TAP
+import ZXSpectrum.Attributes
 
 import Data.ByteString (ByteString)
 import qualified Data.ByteString as BS
