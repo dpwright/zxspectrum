@@ -103,6 +103,8 @@ loader name datastart exeat = withHeader hdr $ tapBlock Data loaderCode
         lineNumber  = 10
         loaderCode  = basic lineNumber . basicSeq $ map BS.pack
                     [ [clear, val] <> quotedNum (datastart-1)
+                    , [load] <> quoted [] <> [screen]
+                    , [poke, val] <> quotedNum 23739 <> [encodeChar ','] <> [val] <> quotedNum 111
                     , [load] <> quoted [] <> [code]
                     , [randomize, usr, val] <> quotedNum exeat ]
 
@@ -152,11 +154,14 @@ basic ln c = lineNumber <> lineLength <> code'
         lineNumber = BS.pack . encodeLineNumber $ ln
         code'      = c <> BS.pack [cr]
 
-clear, val, load, code, randomize, usr, quote, cr :: Word8
+clear, val, load, code, screen  :: Word8
+poke, randomize, usr, quote, cr :: Word8
 clear     = 0xfd
 val       = 0xb0
 load      = 0xef
 code      = 0xaf
+screen    = 0xaa
+poke      = 0xf4
 randomize = 0xf9
 usr       = 0xc0
 quote     = encodeChar '\"'
