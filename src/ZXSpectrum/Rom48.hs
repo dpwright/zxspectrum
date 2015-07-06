@@ -733,6 +733,12 @@ pattern CO_CHANGE   = 0x226C :: Location
 pattern CO_TEMP_D   = 0x227D :: Location
 pattern CO_TEMP_E   = 0x2287 :: Location
 pattern BORDER      = 0x2294 :: Location
+
+-- | BORDERFAST isn't documented in "The Complete Spectrum ROM Disassembly", but is
+-- commonly used.  It skips the initial check that input values are in range, making
+-- setting the border a little bit faster.
+pattern BORDERFAST  = 0x229b :: Location
+
 pattern BORDER_1    = 0x22A6 :: Location
 pattern PIXEL_ADD   = 0x22AA :: Location
 pattern POINT_SUB   = 0x22CB :: Location
