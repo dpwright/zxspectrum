@@ -20,6 +20,7 @@ library
                        ZXSpectrum.Keyboard,
                        ZXSpectrum.Sound,
                        ZXSpectrum.Util
+                       ZXSpectrum.UDG
   build-depends:       base >=4.7 && <4.9,
                        bytestring,
                        mtl,

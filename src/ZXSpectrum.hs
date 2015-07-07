@@ -5,6 +5,7 @@ module ZXSpectrum
   , module ZXSpectrum.Keyboard
   , module ZXSpectrum.Attributes
   , module ZXSpectrum.Util
+  , module ZXSpectrum.UDG
   ) where
 
 import Z80
@@ -14,6 +15,7 @@ import ZXSpectrum.Sound
 import ZXSpectrum.Keyboard
 import ZXSpectrum.Attributes
 import ZXSpectrum.Util
+import ZXSpectrum.UDG
 
 import Data.ByteString (ByteString)
 import qualified Data.ByteString as BS
