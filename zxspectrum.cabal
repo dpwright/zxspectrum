@@ -18,7 +18,8 @@ library
                        ZXSpectrum.TAP,
                        ZXSpectrum.Attributes,
                        ZXSpectrum.Keyboard,
-                       ZXSpectrum.Sound
+                       ZXSpectrum.Sound,
+                       ZXSpectrum.Util
   build-depends:       base >=4.7 && <4.9,
                        bytestring,
                        mtl,
