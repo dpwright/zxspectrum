@@ -21,8 +21,8 @@ import Data.ByteString (ByteString)
 import qualified Data.ByteString as BS
 
 encodeBlock :: String -> ByteString -> ASMBlock -> Either String ByteString
-encodeBlock loaderName scr (ASMBlock orgAddr asm) = do
-  loaderBlock  <- loader loaderName orgAddr orgAddr
+encodeBlock loaderName scr (ASMBlock orgAddr entryAddr asm) = do
+  loaderBlock  <- loader loaderName orgAddr entryAddr
   titleBlock   <- codeBlock "" 16384 scr
   contentBlock <- codeBlock "" orgAddr asm
   return $ mconcat [loaderBlock, titleBlock, contentBlock]
