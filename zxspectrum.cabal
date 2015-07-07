@@ -17,6 +17,7 @@ library
                        ZXSpectrum.Rom48,
                        ZXSpectrum.TAP,
                        ZXSpectrum.Attributes,
+                       ZXSpectrum.Keyboard,
                        ZXSpectrum.Sound
   build-depends:       base >=4.7 && <4.9,
                        bytestring,

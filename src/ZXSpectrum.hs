@@ -2,6 +2,7 @@ module ZXSpectrum
   ( defaultMain
   , module ZXSpectrum.Rom48
   , module ZXSpectrum.Sound
+  , module ZXSpectrum.Keyboard
   , module ZXSpectrum.Attributes
   ) where
 
@@ -9,6 +10,7 @@ import Z80
 import ZXSpectrum.TAP
 import ZXSpectrum.Rom48
 import ZXSpectrum.Sound
+import ZXSpectrum.Keyboard
 import ZXSpectrum.Attributes
 
 import Data.ByteString (ByteString)
