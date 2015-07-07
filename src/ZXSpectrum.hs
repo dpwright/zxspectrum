@@ -34,5 +34,5 @@ defaultMain :: String   -- ^ The name to give the loader file (max. 10 character
             -> IO ()
 defaultMain loaderName loadingScreen asm = do
   scr <- BS.readFile loadingScreen
-  either handleError (BS.writeFile "a.tap") $ encodeBlock loaderName scr asm
+  either handleError (BS.writeFile $ loaderName ++ ".tap") $ encodeBlock loaderName scr asm
   where handleError = putStrLn . ("Error: " ++)
