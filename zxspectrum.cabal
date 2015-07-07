@@ -16,7 +16,8 @@ library
   exposed-modules:     ZXSpectrum,
                        ZXSpectrum.Rom48,
                        ZXSpectrum.TAP,
-                       ZXSpectrum.Attributes
+                       ZXSpectrum.Attributes,
+                       ZXSpectrum.Sound
   build-depends:       base >=4.7 && <4.9,
                        bytestring,
                        mtl,
