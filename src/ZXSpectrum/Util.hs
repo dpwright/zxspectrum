@@ -10,6 +10,7 @@ module ZXSpectrum.Util
   , printA
   , printVal
   , setCursorPos
+  , printString
     -- * Metasequences
   , pattern INK
   , pattern PAPER
@@ -17,7 +18,10 @@ module ZXSpectrum.Util
   ) where
 
 import Z80
+import ZXSpectrum.Rom48
+
 import Data.Word
+import qualified Data.ByteString as BS
 
 pattern INK   = 0x10 :: Word8
 pattern PAPER = 0x11 :: Word8
@@ -41,3 +45,12 @@ setCursorPos (x, y) = do
   printVal AT
   printVal y
   printVal x
+
+-- | Print a string by allocating space for it statically and then using the PR_STRING
+-- ROM routine to output it to screen.  Uses the DE and BC registers.
+printString :: String -> Z80ASM
+printString s = do
+  ld DE =<< staticString
+  ld BC . fromIntegral $ length s
+  call PR_STRING
+  where staticString = static ("STRING:"++s) $ defb (BS.pack $ map chr s)
