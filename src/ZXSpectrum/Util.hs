@@ -9,6 +9,7 @@ module ZXSpectrum.Util
     chr
   , printA
   , printVal
+  , setCursorPos
     -- * Metasequences
   , pattern INK
   , pattern PAPER
@@ -33,3 +34,10 @@ printA = rst 16
 -- | Print a value by loading it into the accumulator and then calling "printA".
 printVal :: Load A c => c -> Z80ASM
 printVal c = ld A c >> printA
+
+-- | Sets the cursor position by printing the special AT metacharacter.
+setCursorPos :: (Word8, Word8) -> Z80ASM
+setCursorPos (x, y) = do
+  printVal AT
+  printVal y
+  printVal x
