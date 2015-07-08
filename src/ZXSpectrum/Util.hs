@@ -36,7 +36,7 @@ printVal :: Load A c => c -> Z80ASM
 printVal c = ld A c >> printA
 
 -- | Sets the cursor position by printing the special AT metacharacter.
-setCursorPos :: (Word8, Word8) -> Z80ASM
+setCursorPos :: (Load A x, Load A y) => (x, y) -> Z80ASM
 setCursorPos (x, y) = do
   printVal AT
   printVal y
