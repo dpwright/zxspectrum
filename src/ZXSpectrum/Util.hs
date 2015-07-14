@@ -5,8 +5,10 @@
 -- | Miscellaneous utilities useful in ZX Spectrum development.
 
 module ZXSpectrum.Util
-  ( -- * Printing utilities
-    chr
+  ( -- * General utilities
+    coords
+    -- * Printing utilities
+  , chr
   , printA
   , printVal
   , setCursorPos
@@ -18,10 +20,15 @@ module ZXSpectrum.Util
 
 import Z80
 import Data.Word
+import Data.Bits
 
 pattern INK   = 0x10 :: Word8
 pattern PAPER = 0x11 :: Word8
 pattern AT    = 0x16 :: Word8
+
+-- | Converts a pair of x/y co-ordinates into their Word16 representation
+coords :: (Word8, Word8) -> Word16
+coords (x, y) = fromIntegral x .|. fromIntegral y `shiftL` 8
 
 -- | Convert a "Char" to a "Word8"
 chr :: Char -> Word8
